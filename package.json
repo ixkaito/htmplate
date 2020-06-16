@@ -7,6 +7,8 @@
     "defaults"
   ],
   "scripts": {
+    "pretest": "npm install",
+    "test": "npm run build",
     "dev": "npm-run-all build -p browser watch:*",
     "browser": "browser-sync \"dist\" -f \"dist\"",
     "clean": "rimraf dist",
