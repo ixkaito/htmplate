@@ -1,0 +1,38 @@
+{
+  "name": "htmplate",
+  "version": "0.1.0",
+  "description": "HTML boilerplate with npm scripts.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "dev": "npm-run-all build -p browser watch:*",
+    "browser": "browser-sync \"dist\" -f \"dist\"",
+    "clean": "rimraf dist",
+    "dist": "cpy \"**/*\" \"!assets/sass\" \"../dist\" --cwd=src --parents",
+    "build": "run-s clean dist sass",
+    "presass": "stylelint src/assets/sass/* --fix",
+    "sass": "sass src/assets/sass:dist/assets/css --style=expanded --no-source-map",
+    "postsass": "postcss dist/assets/css/*.css -u autoprefixer -d dist/assets/css --no-map",
+    "watch:files": "onchange \"src/**/*\" -e \"src/assets/sass\" -- npm run dist",
+    "watch:sass": "onchange \"src/assets/sass/**/*\" -- npm run sass"
+  },
+  "author": "Kite",
+  "license": "MIT",
+  "engines": {
+    "node": "14.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "browser-sync": "^2.26.7",
+    "cpy-cli": "^3.1.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.0.2",
+    "postcss-cli": "^7.1.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.5",
+    "stylelint": "^13.5.0",
+    "stylelint-config-sass-guidelines": "^7.0.0"
+  }
+}
