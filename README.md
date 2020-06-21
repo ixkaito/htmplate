@@ -23,5 +23,5 @@ $ npm run build
 ## Commands
 
 ```bash
-$ yarn run
+$ npm run
 ```
