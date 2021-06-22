@@ -23,7 +23,7 @@
   "author": "Kite",
   "license": "MIT",
   "engines": {
-    "node": "14.3.0"
+    "node": ">=14.17.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
